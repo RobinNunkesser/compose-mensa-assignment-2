@@ -18,41 +18,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MensaTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
-                    MainContent()
-                }
-            }
-        }
+            MainContent()        }
     }
 }
 
-@Composable
-fun MainContent() {
-    val service = MockGetMealsCommand()
 
-    fun success(collections: List<MealCollection>) {
-        Log.d("MainContent",collections.toString())
-    }
-
-    fun failure(error: Throwable) {
-        Log.e("MainContent", error.localizedMessage!!)
-    }
-
-    service.execute(
-        MealQueryDTO(42, LocalDate.now()),
-        ::success,
-        ::failure
-    )
-
-    Text(text = "Hello World!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    MensaTheme {
-        MainContent()
-    }
-}
