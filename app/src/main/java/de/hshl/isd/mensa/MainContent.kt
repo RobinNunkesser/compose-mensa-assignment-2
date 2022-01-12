@@ -22,7 +22,7 @@ fun MainContent() {
         Scaffold(
             topBar = {
                 TopAppBar(title = {
-                    Text(text = "Bottom Navigation")
+                    Text(text = "Mensa")
                 })
             },
             bottomBar = { BottomBar(navController) }
