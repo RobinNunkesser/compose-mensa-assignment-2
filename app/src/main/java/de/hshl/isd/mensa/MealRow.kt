@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-//import coil.compose.rememberImagePainter
+import coil.compose.rememberImagePainter
 
 
 @Composable
@@ -20,10 +20,10 @@ fun MealRow(item: MealViewModel) {
         modifier = Modifier.padding(start = 16.dp, end = 16.dp)
     ) {
         Row(modifier = Modifier.padding(top = 4.dp)) {
-           /* Image(
+           Image(
                 painter = rememberImagePainter(item.image),
                 contentDescription = stringResource(R.string.image_content_desc)
-            )*/
+            )
             Column {
                 Text(
                     text = item.title,
