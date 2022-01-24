@@ -17,6 +17,7 @@ import java.time.LocalDate
 fun Mensa(navController: NavController) {
     val service = MockGetMealsCommand()
     val viewModel = MensaViewModel()
+    val reload = remember { mutableStateOf("") }
 
     fun success(collections: List<MealCollection>) {
         viewModel.collections = collections.map { it.toCollectionViewModel() }
@@ -26,11 +27,13 @@ fun Mensa(navController: NavController) {
         Log.e("MainContent", error.localizedMessage!!)
     }
 
-    service.execute(
-        MealQueryDTO(42, LocalDate.now()),
-        ::success,
-        ::failure
-    )
+    LaunchedEffect(reload) {
+        kotlin.runCatching {
+            service.execute(
+                MealQueryDTO(42, LocalDate.now())
+            )
+        }.onSuccess(::success).onFailure(::failure)
+    }
 
     MensaTheme {
         Scaffold {

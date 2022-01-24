@@ -1,6 +1,5 @@
 package de.hshl.isd.mensa
 
-import android.util.Log
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -11,9 +10,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import de.hshl.isd.mensa.ui.theme.MensaTheme
-import io.github.italbytz.adapters.meal.MockGetMealsCommand
-import io.github.italbytz.ports.meal.MealCollection
-import java.time.LocalDate
 
 @Composable
 fun MainContent() {
